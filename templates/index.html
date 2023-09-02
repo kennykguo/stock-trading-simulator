@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+    <h1>
+        Welcome to C$50 Finance
+    </h1>
+    <h3>
+        Your balance is {{cash}}$
+    </h3>
+    <h3>
+        The value of your stocks is: {{total_stock_value}}$
+    </h3>
+    <br></br>
+    <h2>
+        Stocks you currently own:
+    </h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Stock Name</th>
+                <th>Number of Shares</th>
+                <th>Total Value</th>
+                <th>Stock Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- TODO: Loop through the database entries to display them in this table -->
+            {% for row in rows %}
+                <tr>
+                    <td>
+                        {{row["stock_name"]}}
+                    </td>
+                    <td>
+                        {{row["stock_number"]}}
+                    </td>
+                    <td>
+                        {{row["total_cost"]}}
+                    </td>
+                    <td>
+                        {{row["stock_price"]}}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

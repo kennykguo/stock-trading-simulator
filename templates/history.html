@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <h1>
+        Stock History
+    </h1>
+    <h3>
+        Your balance is {{cash}}$
+    </h3>
+    <br></br>
+    <h2>
+        Here is your stock purchasing/selling history:
+    </h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Stock Name</th>
+                <th>Number of Shares</th>
+                <th>Total Value</th>
+                <th>Stock Price</th>
+                <th>Type</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- TODO: Loop through the database entries to display them in this table -->
+            {% for row in rows %}
+                <tr>
+                    <td>
+                        {{row["stock_name"]}}
+                    </td>
+                    <td>
+                        {{row["stock_number"]}}
+                    </td>
+                    <td>
+                        {{row["total_cost"]}}
+                    </td>
+                    <td>
+                        {{row["stock_price"]}}
+                    </td>
+                    <td>
+                        {{row["type"]}}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

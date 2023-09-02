@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quotes
+{% endblock %}
+
+{% block main %}
+    <form action = "/quote" method = "post">
+        <div>
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name = "symbol" placeholder = "Stock Symbol" type = "text">
+        </div>
+        <div>
+            <button type = "submit">
+                Lookup
+            </button>
+        </div>
+    </form>
+    <br></br>
+    <h2>Stock Quote</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Symbol</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                            <tr>
+                                {% if stock_quote %}
+                                    <td>
+                                        {{stock_quote["name"]}}
+                                    </td>
+                                    <td>
+                                        {{stock_quote["price"]}}
+                                    </td>
+                                    <td>
+                                        {{stock_quote["symbol"]}}
+                                    </td>
+                                {% endif %}
+                            </tr>
+                    </tbody>
+                </table>
+{% endblock %}
