@@ -1,3 +1,4 @@
+# Project Description
 This project is a web-based stock trading simulator where users can register, manage their portfolios, and engage in real-time buying and selling of stocks.
 
 User Registration: Create your account to gain access to the full suite of trading tools.
